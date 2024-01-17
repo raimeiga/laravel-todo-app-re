@@ -14,7 +14,8 @@ use App\Http\Controllers\GoalController;
 |
 */
 
-Route::get('/', [GoalController::class, 'index']);
+Route::get('/', [GoalController::class, 'index'])->middleware('auth');
+
 
 Auth::routes();
 
