@@ -38,6 +38,7 @@ class GoalController extends Controller
         $goal->user_id = Auth::id();
         $goal->save();
 
+        return redirect()->route('goals.index');     
     }   
 
     /**
