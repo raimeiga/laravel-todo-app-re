@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
-{
-    
-
-
-    
+{    
 
     /**
      * Store a newly created resource in storage.
@@ -37,8 +33,7 @@ class TodoController extends Controller
 
         return redirect()->route('goals.index');
     }
-
-    
+  
 
     /**
      * Update the specified resource in storage.
