@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Goal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GoalController extends Controller
 {
@@ -15,10 +16,10 @@ class GoalController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    
+        $goals = Auth::user()->goals;
+ 
+        return view('goals.index', compact('goals'));
+    }   
 
     /**
      * Store a newly created resource in storage.
@@ -28,7 +29,15 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $goal = new Goal();
+        $goal->title = $request->input('title');
+        $goal->user_id = Auth::id();
+        $goal->save();
+
     }   
 
     /**
@@ -40,7 +49,15 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $goal->title = $request->input('title');
+        $goal->user_id = Auth::id();
+        $goal->save();
+
+        return redirect()->route('goals.index');  
     }
 
     /**
@@ -51,6 +68,8 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-        //
+        $goal->delete();
+ 
+        return redirect()->route('goals.index');  
     }
 }
