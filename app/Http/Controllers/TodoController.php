@@ -21,6 +21,7 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request, Goal $goal) {
         //
         $request->validate([
@@ -35,8 +36,6 @@ class TodoController extends Controller
         $todo->save();        
 
         return redirect()->route('goals.index');
-    {
-        //
     }
 
     
