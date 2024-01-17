@@ -7,7 +7,7 @@
  @push('scripts')
      <script src="{{ asset('/js/script.js') }}"></script>
  @endpush
- 
+
  @section('content')
      <div class="container h-100"> 
          @if ($errors->any())
@@ -108,7 +108,12 @@
                                              </ul>
                                          </div>
                                      </div>   
-                                     <h6 class="card-subtitle ms-1 mb-1 text-muted">{{ $todo->created_at }}</h6>                                                               
+                                     <h6 class="card-subtitle ms-1 mb-1 text-muted">{{ $todo->created_at }}</h6>     
+                                      <div class="d-flex flex-wrap mx-1 mb-1">
+                                         @foreach ($todo->tags()->orderBy('id', 'asc')->get() as $tag)                                    
+                                             <span class="badge bg-secondary mt-2 me-2 fw-light">{{ $tag->name }}</span>                                      
+                                         @endforeach   
+                                      </div>                                                          
                                  </div>                                
                              </div>
                          @endforeach
