@@ -21,9 +21,9 @@
                      <span class="fs-5 fw-bold">＋</span>&nbsp;目標の追加
                  </div>
              </a>          
-         </div>  
+         </div>    
 
-         <div class="row row-cols-1 row row-cols-md-2 row-cols-lg-3 g-4">                         
+          <div class="row row-cols-1 row row-cols-md-2 row-cols-lg-3 g-4">                         
              @foreach ($goals as $goal) 
              
                  <!-- 目標の編集用モーダル -->
@@ -38,7 +38,7 @@
                              <h4 class="card-title ms-1 mb-0">{{ $goal->title }}</h4>
                              <div class="d-flex align-items-center">                                 
                                  <div class="dropdown">
-                                     <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none" id="dropdownGoalMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>
+                                     <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none menu-icon" id="dropdownGoalMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>
                                      <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="dropdownGoalMenuLink">
                                          <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editGoalModal{{ $goal->id }}">編集</a></li>                                   
                                          <div class="dropdown-divider"></div>
@@ -50,6 +50,7 @@
                      </div>                           
                  </div>
              @endforeach                       
-         </div>                                                   
+         </div>                          
+
      </div>
  @endsection
